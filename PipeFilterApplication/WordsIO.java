@@ -1,12 +1,16 @@
 package PipeFilterApplication;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class WordsIO {
+
+
     public static String readWords(String urlString){
-        
 
          // Initialize a StringBuilder to store the contents of the file
         StringBuilder content = new StringBuilder();
@@ -34,5 +38,21 @@ public class WordsIO {
         System.out.println("Read succeed File Content:\n" + fileContent);
 
         return fileContent;
+    }
+
+
+    public static void writeWords(List<String> outputList, String outputPath){
+
+        String filePath = "output.txt";
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            // Iterate through the list and write each string to the file
+            for (String str : outputList) {
+                writer.write(str);
+                writer.newLine(); // Add a newline to separate the strings
+            }
+            System.out.println("List written to " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
