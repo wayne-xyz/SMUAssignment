@@ -13,7 +13,7 @@ public class StartOperation {
 
 
         myWords.orignalList=SerializationWords.wordsToList(myWords.originalString); //get the list of the words in the sentence;
-        myWords.sortedList=SerializationWords.sortList(myWords.orignalList); //get the sorted list of the words in the sentence;
+        myWords.sortedList=SerializationWords.sortList(myWords.orignalList); //get the sorted list of the words;
 
         WordsIO.writeWords(myWords.sortedList, currentDirectory); // write the file in the output.txt
     }
